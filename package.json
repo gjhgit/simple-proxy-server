@@ -1,0 +1,22 @@
+{
+  "name": "simple-proxy-server",
+  "version": "1.0.0",
+  "description": "简单的HTTP/HTTPS代理服务器，支持请求转发",
+  "main": "proxy-server.js",
+  "scripts": {
+    "start": "node proxy-server.js",
+    "dev": "node proxy-server.js"
+  },
+  "keywords": [
+    "proxy",
+    "server",
+    "http",
+    "https",
+    "forward"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

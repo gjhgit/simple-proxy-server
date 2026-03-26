@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  proxy-server:
+    build: .
+    container_name: simple-proxy
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      # 可选：设置允许的来源，逗号分隔，*表示允许所有
+      # - ALLOWED_ORIGINS=https://yourdomain.com,https://app.yourdomain.com
+    restart: unless-stopped
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
