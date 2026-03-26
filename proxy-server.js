@@ -29,6 +29,21 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 健康检查端点
+  if (req.url === '/' || req.url === '/health') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({
+      status: 'ok',
+      message: 'Proxy server is running',
+      timestamp: new Date().toISOString(),
+      usage: {
+        method1: '/?target=https://example.com/api',
+        method2: '/https://example.com/api'
+      }
+    }));
+    return;
+  }
+
   // 解析目标URL
   // 支持两种方式：
   // 1. 通过查询参数：?target=https://example.com/api
